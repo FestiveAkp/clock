@@ -1,8 +1,10 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <canvas id="g-canvas"></canvas>
+        <router-link to="/">Home</router-link>
+        <router-link to="/second">Second</router-link>
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
