@@ -5,6 +5,8 @@ import App from './App.vue';
 import HomeView from './views/HomeView.vue';
 import SecondView from './views/SecondView.vue';
 
+import 'bulma/css/bulma.css';
+
 Vue.config.productionTip = true;
 Vue.use(VueRouter);
 

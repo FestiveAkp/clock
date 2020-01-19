@@ -1,12 +1,7 @@
 <template>
-  <div class="hello">
-    
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-  </div>
+    <div class="container has-text-centered">
+        <h1 class="has-text-weight-medium" v-text="time"></h1>
+    </div>    
 </template>
 
 <script>
@@ -39,5 +34,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+    h1 {
+        font-size: 6rem;
+    }
 </style>
