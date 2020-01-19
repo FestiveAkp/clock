@@ -11,6 +11,7 @@ Vue.config.productionTip = true;
 Vue.use(VueRouter);
 
 const router = new VueRouter({
+    mode: 'history',
     routes: [
         {
             path: '/',
@@ -22,6 +23,7 @@ const router = new VueRouter({
             name: 'second',
             component: SecondView
         }
+        // TODO: fallback route for 404
     ]
 });
 
