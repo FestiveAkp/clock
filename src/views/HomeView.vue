@@ -10,9 +10,31 @@
 </template>
 
 <script>
-export default {
-  name: 'HomeView'
-}
+    import moment from 'moment';
+
+    export default {
+        name: 'HomeView',
+
+        data() {
+            return {
+                time: ''
+            };
+        },
+
+        methods: {
+            currentTime() {
+                this.time = moment().format('h:mm:ss a');
+            }
+        },
+
+        mounted() {
+            this.interval = setInterval(this.currentTime, 1000);
+        },
+
+        beforeDestroy() {
+            clearInterval(this.interval);
+        }
+    }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
