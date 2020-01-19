@@ -1,6 +1,7 @@
 <template>
     <div class="container has-text-centered">
         <h1 class="has-text-weight-medium" v-text="time"></h1>
+        <h2 v-text="date"></h2>
     </div>    
 </template>
 
@@ -12,13 +13,15 @@
 
         data() {
             return {
-                time: ''
+                time: '',
+                date: ''
             };
         },
 
         methods: {
             currentTime() {
                 this.time = moment().format('h:mm:ss a');
+                this.date = moment().format('dddd, LL');
             }
         },
 
@@ -34,6 +37,10 @@
 
 <style scoped>
     h1 {
-        font-size: 6rem;
+        font-size: 12rem;
+    }
+
+    h2 {
+        font-size: 3rem;
     }
 </style>
