@@ -1,15 +1,17 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Buefy from 'buefy';
 
 import App from './App.vue';
 import HomeView from './views/HomeView.vue';
 import SecondView from './views/SecondView.vue';
 
-import 'bulma/css/bulma.css';
+import 'buefy/dist/buefy.css';
 import '../public/app.css';
 
 Vue.config.productionTip = true;
 Vue.use(VueRouter);
+Vue.use(Buefy);
 
 const router = new VueRouter({
     mode: 'history',
