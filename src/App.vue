@@ -1,14 +1,8 @@
 <template>
     <div id="app">
         <canvas id="g-canvas"></canvas>
-        <section class="hero is-fullheight">
-            <div class="hero-head">
-                <router-link to="/">Home</router-link>
-                <router-link to="/second">Second</router-link>
-            </div>
-            <div class="hero-body">
-                <router-view></router-view>
-            </div>
+        <section class="hero is-fullheight">         
+            <router-view></router-view>
         </section>
     </div>
 </template>
@@ -18,10 +12,6 @@
 
     export default {
         name: 'app',
-        
-        components: {
-            // HomeView
-        },
 
         methods: {
             startGranim() {
