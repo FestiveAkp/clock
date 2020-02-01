@@ -4,7 +4,6 @@ import Buefy from 'buefy';
 
 import App from './App.vue';
 import HomeView from './views/HomeView.vue';
-import SecondView from './views/SecondView.vue';
 
 import 'buefy/dist/buefy.css';
 import '../public/app.css';
@@ -20,11 +19,6 @@ const router = new VueRouter({
             path: '/',
             name: 'home',
             component: HomeView
-        },
-        {
-            path: '/second',
-            name: 'second',
-            component: SecondView
         }
         // TODO: fallback route for 404
     ]

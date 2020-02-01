@@ -3,7 +3,6 @@
         <div class="container has-text-centered">
             <h1 v-text="time"></h1>
             <h2 v-text="date"></h2>
-            <router-link class="button is-dark is-outlined" to="/second">Exam Mode</router-link>
         </div>     
     </div>
 </template>
