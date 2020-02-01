@@ -9,6 +9,7 @@
 
 <script>
     import Granim from 'granim';
+    import { gradients } from './gradients';
 
     export default {
         name: 'app',
@@ -19,11 +20,7 @@
                     element: '#g-canvas',
                     states: {
                         "default-state": {
-                            gradients: [
-                                ['#1CD8D2', '#93EDC7'],
-                                ['#A1FFCE', '#FAFFD1'],
-                                ['#834D9B', '#D04ED6']
-                            ]
+                            gradients
                         }
                     }
                 });
