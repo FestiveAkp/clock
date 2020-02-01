@@ -18,6 +18,7 @@
             startGranim() {
                 new Granim({
                     element: '#g-canvas',
+                    direction: 'diagonal',
                     states: {
                         "default-state": {
                             gradients

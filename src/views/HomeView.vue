@@ -1,6 +1,6 @@
 <template>
     <div class="hero-body">
-        <div class="container has-text-centered">
+        <div class="container is-fluid has-text-centered">
             <h1 v-text="time"></h1>
             <h2 v-text="date"></h2>
         </div>     
