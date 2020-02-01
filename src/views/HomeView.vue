@@ -40,16 +40,20 @@
 
 <style scoped>
     h1 {
-        font-size: 12em;
+        font-size: 12vw;
         font-family: 'Varela Round', sans-serif;
     }
 
     h2 {
-        font-size: 3em;
+        font-size: 3vw;
         font-family: 'Varela Round', sans-serif;
     }
 
     a {
         margin-top: 3rem;
+    }
+
+    div.container {
+        margin-bottom: 2em;
     }
 </style>
