@@ -1,16 +1,15 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Buefy from 'buefy';
+// import Buefy from 'buefy';
 
 import App from './App.vue';
 import HomeView from './views/HomeView.vue';
 
 import 'buefy/dist/buefy.css';
-import '../public/app.css';
 
 Vue.config.productionTip = true;
 Vue.use(VueRouter);
-Vue.use(Buefy);
+// Vue.use(Buefy);
 
 const router = new VueRouter({
     mode: 'history',
