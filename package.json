@@ -9,7 +9,6 @@
     },
     "dependencies": {
         "buefy": "^0.8.10",
-        "core-js": "^3.4.4",
         "granim": "^2.0.0",
         "moment": "^2.24.0",
         "vue": "^2.6.10",
