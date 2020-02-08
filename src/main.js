@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 // import Buefy from 'buefy';
 
 import App from './App.vue';
-import HomeView from './views/HomeView.vue';
+import Clock from './views/Clock.vue';
 
 import 'buefy/dist/buefy.css';
 
@@ -17,8 +17,8 @@ const router = new VueRouter({
     routes: [
         {
             path: '/',
-            name: 'home',
-            component: HomeView
+            name: 'clock',
+            component: Clock
         }
         // TODO: fallback route for 404
     ]
@@ -28,4 +28,4 @@ new Vue({
     render: h => h(App),
     mounted: () => document.dispatchEvent(new Event("x-app-rendered")),
     router: router
-}).$mount('#app');
+}).$mount('#clock-app');

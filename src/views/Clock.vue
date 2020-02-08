@@ -1,17 +1,15 @@
 <template>
-    <div class="hero-body">
-        <div class="container is-fluid has-text-centered">
-            <h1 v-text="time"></h1>
-            <h2 v-text="date"></h2>
-        </div>     
-    </div>
+    <div class="container is-fluid has-text-centered">
+        <h1 v-text="time" class="time-display"></h1>
+        <h2 v-text="date" class="date-display"></h2>
+    </div>     
 </template>
 
 <script>
     import moment from 'moment';
 
     export default {
-        name: 'HomeView',
+        name: 'Clock',
 
         data() {
             return {
@@ -39,12 +37,12 @@
 </script>
 
 <style scoped>
-    h1 {
+    .time-display {
         font-size: 12vw;
         font-family: 'Varela Round', sans-serif;
     }
 
-    h2 {
+    .date-display {
         font-size: 3vw;
         font-family: 'Varela Round', sans-serif;
     }

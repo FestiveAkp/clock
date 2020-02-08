@@ -1,8 +1,10 @@
 <template>
-    <div id="app">
+    <div id="clock-app">
         <canvas id="g-canvas"></canvas>
-        <section class="hero is-fullheight">         
-            <router-view></router-view>
+        <section class="hero is-fullheight">   
+            <div class="hero-body">
+                <router-view></router-view>            
+            </div>      
         </section>
     </div>
 </template>
