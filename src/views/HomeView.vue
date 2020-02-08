@@ -28,6 +28,7 @@
         },
 
         mounted() {
+            this.currentTime();
             this.interval = setInterval(this.currentTime, 1000);
         },
 
