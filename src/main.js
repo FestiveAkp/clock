@@ -13,6 +13,7 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
     mode: 'history',
+    base: '/clock',
     routes: [
         {
             path: '/',
@@ -25,5 +26,6 @@ const router = new VueRouter({
 
 new Vue({
     render: h => h(App),
+    mounted: () => document.dispatchEvent(new Event("x-app-rendered")),
     router: router
 }).$mount('#app');
