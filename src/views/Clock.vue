@@ -19,15 +19,15 @@
         },
 
         methods: {
-            currentTime() {
+            getCurrentTime() {
                 this.time = moment().format('h:mm:ss a');
                 this.date = moment().format('dddd, LL');
             }
         },
 
         mounted() {
-            this.currentTime();
-            this.interval = setInterval(this.currentTime, 1000);
+            this.getCurrentTime();
+            this.interval = setInterval(this.getCurrentTime, 1000);
         },
 
         beforeDestroy() {
