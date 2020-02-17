@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-// import Buefy from 'buefy';
+import { Snackbar } from 'buefy';
 
 import App from './App.vue';
 import Clock from './views/Clock.vue';
@@ -9,7 +9,7 @@ import 'buefy/dist/buefy.css';
 
 Vue.config.productionTip = true;
 Vue.use(VueRouter);
-// Vue.use(Buefy);
+Vue.use(Snackbar);
 
 const router = new VueRouter({
     mode: 'history',

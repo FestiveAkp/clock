@@ -11,6 +11,7 @@
 
 <script>
     import Granim from 'granim';
+    import screenfull from 'screenfull';
     import { gradients } from './gradients';
 
     export default {
@@ -32,6 +33,14 @@
 
         mounted() {
             this.startGranim();
+            this.$buefy.snackbar.open({
+                type: 'is-white',
+                duration: 5000,
+                position: 'is-top',
+                message: 'Make me fullscreen!',
+                actionText: 'Go',
+                onAction: () => screenfull.request()
+            });
         }
     }
 </script>
