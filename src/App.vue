@@ -1,10 +1,10 @@
 <template>
     <div id="clock-app">
         <canvas id="g-canvas"></canvas>
-        <section class="hero is-fullheight">   
+        <section class="hero is-fullheight">
             <div class="hero-body">
-                <router-view></router-view>            
-            </div>      
+                <router-view></router-view>
+            </div>
         </section>
     </div>
 </template>
@@ -55,7 +55,7 @@
             url('../fonts/varela-round-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
             url('../fonts/varela-round-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
-    
+
     html {
         overflow: hidden !important;
     }

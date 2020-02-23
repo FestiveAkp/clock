@@ -2,7 +2,7 @@
     <div class="container is-fluid has-text-centered">
         <h1 v-text="time" class="time-display"></h1>
         <h2 v-text="date" class="date-display"></h2>
-    </div>     
+    </div>
 </template>
 
 <script>
