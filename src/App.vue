@@ -22,25 +22,30 @@
                 new Granim({
                     element: '#g-canvas',
                     direction: 'diagonal',
+                    stateTransitionSpeed: 2000,
                     states: {
                         "default-state": {
                             gradients
                         }
                     }
                 });
+            },
+
+            launchSnackbar() {
+                this.$buefy.snackbar.open({
+                    type: 'is-white',
+                    duration: 10000,
+                    position: 'is-top',
+                    message: 'Make me fullscreen!',
+                    actionText: 'Go',
+                    onAction: () => screenfull.request()
+                });
             }
         },
 
         mounted() {
             this.startGranim();
-            this.$buefy.snackbar.open({
-                type: 'is-white',
-                duration: 5000,
-                position: 'is-top',
-                message: 'Make me fullscreen!',
-                actionText: 'Go',
-                onAction: () => screenfull.request()
-            });
+            setTimeout(this.launchSnackbar, 1000);
         }
     }
 </script>
