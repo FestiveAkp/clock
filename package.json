@@ -4,9 +4,11 @@
     "private": true,
     "scripts": {
         "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build"
+        "build": "vue-cli-service build",
+        "deploy": "./deploy.sh"
     },
     "dependencies": {
+        "animejs": "^3.2.0",
         "buefy": "^0.8.15",
         "granim": "^2.0.0",
         "moment": "^2.24.0",
