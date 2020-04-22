@@ -9,12 +9,11 @@
     },
     "dependencies": {
         "animejs": "^3.2.0",
-        "buefy": "^0.8.15",
+        "bulma": "^0.8.2",
         "granim": "^2.0.0",
         "moment": "^2.24.0",
         "screenfull": "^5.0.2",
-        "vue": "^2.6.10",
-        "vue-router": "^3.1.6"
+        "vue": "^2.6.10"
     },
     "devDependencies": {
         "@vue/cli-plugin-babel": "^4.3.1",

@@ -14,7 +14,7 @@
                         </span>
                     </a>
                 </div>
-                <router-view></router-view>
+                <Clock />
             </div>
         </section>
     </div>
@@ -25,9 +25,11 @@ import Granim from 'granim';
 import screenfull from 'screenfull';
 import anime from 'animejs';
 import { gradients } from './gradients';
+import Clock from './views/Clock';
 
 export default {
     name: 'app',
+    components: { Clock },
 
     data() {
         return {
