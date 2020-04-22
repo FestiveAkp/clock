@@ -18,87 +18,87 @@
 </template>
 
 <script>
-    import Granim from 'granim';
-    import screenfull from 'screenfull';
-    import { gradients } from './gradients';
+import Granim from 'granim';
+import screenfull from 'screenfull';
+import { gradients } from './gradients';
 
-    export default {
-        name: 'app',
+export default {
+    name: 'app',
 
-        data() {
-            return {
-                isFullscreen: false
-            };
-        },
+    data() {
+        return {
+            isFullscreen: false
+        };
+    },
 
-        methods: {
-            startGranim() {
-                new Granim({
-                    element: '#g-canvas',
-                    direction: 'diagonal',
-                    stateTransitionSpeed: 2000,
-                    states: {
-                        "default-state": {
-                            gradients
-                        }
+    methods: {
+        startGranim() {
+            new Granim({
+                element: '#g-canvas',
+                direction: 'diagonal',
+                stateTransitionSpeed: 2000,
+                states: {
+                    "default-state": {
+                        gradients
                     }
-                });
-            },
-
-            toggleFullscreen() {
-                if (screenfull.isEnabled) {
-                    screenfull.request();
-                    screenfull.on('change', () => {
-                        this.isFullscreen = screenfull.isFullscreen ? true : false;
-                    })
                 }
-            }
+            });
         },
 
-        mounted() {
-            this.startGranim();
+        toggleFullscreen() {
+            if (screenfull.isEnabled) {
+                screenfull.request();
+                screenfull.on('change', () => {
+                    this.isFullscreen = screenfull.isFullscreen ? true : false;
+                })
+            }
         }
+    },
+
+    mounted() {
+        this.startGranim();
     }
+}
 </script>
 
 <style>
-    /* https://google-webfonts-helper.herokuapp.com/fonts */
-    @font-face {
-        font-family: 'Varela Round';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Varela Round Regular'), local('VarelaRound-Regular'),
-            url('../public/fonts/varela-round-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-            url('../public/fonts/varela-round-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    }
+/* https://google-webfonts-helper.herokuapp.com/fonts */
+@font-face {
+    font-family: 'Varela Round';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Varela Round Regular'), local('VarelaRound-Regular'),
+        url('../public/fonts/varela-round-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('../public/fonts/varela-round-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
-    html {
-        overflow: hidden !important;
-    }
+html {
+    overflow: hidden !important;
+}
 
-    canvas {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: -1;
-    }
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
 
-    div.header-absolute {
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 1rem;
-    }
+div.header-absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+}
 
-    div.header-absolute>:not(:last-child) {
-        margin-right: 1rem;
-    }
+div.header-absolute>:not(:last-child) {
+    margin-right: 1rem;
+}
 
-    .no-border {
-        border: 0 !important;
-    }
+.no-border {
+    border: 0 !important;
+}
 </style>

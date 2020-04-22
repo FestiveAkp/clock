@@ -6,52 +6,52 @@
 </template>
 
 <script>
-    import moment from 'moment';
+import moment from 'moment';
 
-    export default {
-        name: 'Clock',
+export default {
+    name: 'Clock',
 
-        data() {
-            return {
-                time: '',
-                date: ''
-            };
-        },
+    data() {
+        return {
+            time: '',
+            date: ''
+        };
+    },
 
-        methods: {
-            getCurrentTime() {
-                this.time = moment().format('h:mm:ss a');
-                this.date = moment().format('dddd, LL');
-            }
-        },
-
-        mounted() {
-            this.getCurrentTime();
-            this.interval = setInterval(this.getCurrentTime, 1000);
-        },
-
-        beforeDestroy() {
-            clearInterval(this.interval);
+    methods: {
+        getCurrentTime() {
+            this.time = moment().format('h:mm:ss a');
+            this.date = moment().format('dddd, LL');
         }
+    },
+
+    mounted() {
+        this.getCurrentTime();
+        this.interval = setInterval(this.getCurrentTime, 1000);
+    },
+
+    beforeDestroy() {
+        clearInterval(this.interval);
     }
+}
 </script>
 
 <style scoped>
-    .time-display {
-        font-size: 12vw;
-        font-family: 'Varela Round', sans-serif;
-    }
+.time-display {
+    font-size: 12vw;
+    font-family: 'Varela Round', sans-serif;
+}
 
-    .date-display {
-        font-size: 3vw;
-        font-family: 'Varela Round', sans-serif;
-    }
+.date-display {
+    font-size: 3vw;
+    font-family: 'Varela Round', sans-serif;
+}
 
-    a {
-        margin-top: 3rem;
-    }
+a {
+    margin-top: 3rem;
+}
 
-    div.container {
-        margin-bottom: 2em;
-    }
+div.container {
+    margin-bottom: 2em;
+}
 </style>
