@@ -6,7 +6,9 @@
 </template>
 
 <script>
-import moment from 'moment';
+import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+dayjs.extend(localizedFormat);
 
 export default {
     name: 'Clock',
@@ -20,12 +22,12 @@ export default {
 
     methods: {
         getCurrentTime() {
-            this.time = moment().format('h:mm:ss a');
-            this.date = moment().format('dddd, LL');
+            this.time = dayjs().format('h:mm:ss a');
+            this.date = dayjs().format('dddd, LL');
         }
     },
 
-    mounted() {
+    created() {
         this.getCurrentTime();
         this.interval = setInterval(this.getCurrentTime, 1000);
     },
