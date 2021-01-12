@@ -12,6 +12,9 @@ export default {
         ],
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        ],
+        script: [
+            { 'data-goatcounter': 'https://akashdev.goatcounter.com/count', async: true, src: '//gc.zgo.at/count.js', body: true }
         ]
     },
 
