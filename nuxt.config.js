@@ -8,10 +8,20 @@ export default {
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+
             { hid: 'description', name: 'description', content: 'A beautifully simple online date and time display in front of a colorful moving gradient.' },
+
             { name: 'msapplication-TileColor', content: '#da532c' },
             { name: 'msapplication-config', content: '/clock/browserconfig.xml' },
-            { name: 'theme-color', content: '#000000' }
+            { name: 'theme-color', content: '#000000' },
+
+            { property: 'og:type', content: 'website' },
+            { property: 'og:url', content: 'https://akash.dev/clock/' },
+            { property: 'og:title', content: 'Gradient Clock' },
+            { property: 'og:description', content: 'A beautifully simple online date and time display in front of a colorful moving gradient.' },
+            { property: 'og:image', content: 'https://akash.dev/clock/thumbnail.png' },
+            { property: 'twitter:card', content: 'summary_large_image' },
+            { property: 'twitter:image:alt', content: 'Large clock in front of gradient' }
         ],
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/clock/favicon.ico' },
