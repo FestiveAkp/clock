@@ -32,4 +32,9 @@
     html {
         overflow: hidden !important;
     }
+
+    .container.is-fluid {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 </style>
