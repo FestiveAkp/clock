@@ -1,44 +1,63 @@
 <template>
-    <div class="container is-fluid has-text-centered">
-        <h1 v-text="time" class="time-display"></h1>
+    <div class="clock-display container is-fluid has-text-centered">
+        <h1 v-text="formattedTime" class="time-display"></h1>
         <h2 v-text="date" class="date-display"></h2>
     </div>
 </template>
 
 <script>
-import dayjs from 'dayjs';
-import localizedFormat from 'dayjs/plugin/localizedFormat';
-dayjs.extend(localizedFormat);
+    import { mapState } from 'vuex';
+    import dayjs from 'dayjs';
+    import localizedFormat from 'dayjs/plugin/localizedFormat';
+    dayjs.extend(localizedFormat);
 
-export default {
-    name: 'Clock',
+    export default {
+        name: 'Clock',
 
-    data() {
-        return {
-            time: '',
-            date: ''
-        };
-    },
+        data() {
+            return {
+                time: '',
+                date: ''
+            };
+        },
 
-    methods: {
-        getCurrentTime() {
-            this.time = dayjs().format('h:mm:ss a');
-            this.date = dayjs().format('dddd, LL');
+        methods: {
+            getCurrentTime() {
+                this.time = dayjs();
+                this.date = dayjs().format('dddd, LL');
+            }
+        },
+
+        computed: {
+            ...mapState([
+                'is24Hour',
+                'isHidingSeconds',
+                'isUppercaseAM',
+                'isHidingAM',
+                'isBurnInReduction'
+            ]),
+
+            formattedTime: function () {
+                const h = this.is24Hour ? 'H' : 'h';
+                const ss = this.isHidingSeconds ? '' : ':ss';
+                const a = this.is24Hour ? '' : this.isHidingAM ? '' : this.isUppercaseAM ? ' A' : ' a';
+
+                return (this.time).format(h + ':mm' + ss + a);
+            }
+        },
+
+        created() {
+            this.getCurrentTime();
+            this.interval = setInterval(this.getCurrentTime, 1000);
+        },
+
+        beforeDestroy() {
+            clearInterval(this.interval);
         }
-    },
-
-    created() {
-        this.getCurrentTime();
-        this.interval = setInterval(this.getCurrentTime, 1000);
-    },
-
-    beforeDestroy() {
-        clearInterval(this.interval);
     }
-}
 </script>
 
-<style scoped>
+<style>
     /* https://google-webfonts-helper.herokuapp.com/fonts */
     @font-face {
         font-family: 'Varela Round';

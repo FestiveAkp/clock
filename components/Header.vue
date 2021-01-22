@@ -3,21 +3,28 @@
         <div class="top-left">
             <h1 class="is-size-5 has-text-weight-semibold has-text-dark">Gradient Clock</h1>
         </div>
-        <div class="top-right">
-            <FullscreenButton />
-        </div>
+        <c-stack :spacing="4" direction="row" class="top-right">
+            <div>
+                <FullscreenButton />
+            </div>
+            <div>
+                <Menu />
+            </div>
+        </c-stack>
     </header>
 </template>
 
 <script>
+    import { CStack } from '@chakra-ui/vue';
+    import Menu from '../components/Menu';
     import FullscreenButton from '../components/FullscreenButton';
 
     export default {
-        components: { FullscreenButton }
+        components: { CStack, FullscreenButton, Menu }
     }
 </script>
 
-<style scoped>
+<style>
     .animated-header {
         opacity: 0;
         position: absolute;
@@ -32,12 +39,12 @@
         padding-right: 1.5rem;
     }
 
-    div.top-right>:not(:last-child) {
+    .top-right>:not(:last-child) {
         margin-right: 1rem;
     }
 
     button, a {
-        background-color: transparent;
+        background-color: transparent !important;
         border: 0 !important;
     }
 </style>
