@@ -1,5 +1,5 @@
 <template>
-    <div class="anime-js" @mousemove="fadeInHeader">
+    <div class="anime-js" @mousemove="fadeInHeader" @click="fadeInHeader">
         <slot></slot>
     </div>
 </template>
@@ -39,7 +39,7 @@
                             this.isHeaderRevealed = false;
                         }
                     });
-                }, 3500);
+                }, 4000);
             }
         },
 
