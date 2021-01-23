@@ -162,7 +162,7 @@
         z-index: 4;
         width: 15rem;
         backdrop-filter: blur(5px);
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 1);
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
     }
 </style>
