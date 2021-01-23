@@ -11,10 +11,10 @@
         </c-popover-trigger>
         <c-popover-content placement="bottom-end" class="clock-menu">
             <c-flex align="center" justify="space-between">
-                <c-popover-header fontWeight="semibold">Options</c-popover-header>
+                <c-popover-header :pl="4" fontWeight="semibold">Options</c-popover-header>
                 <c-popover-close-button position="unset" display="flex" :mr="2" />
             </c-flex>
-            <c-stack :px="4" :pt="2" :pb="4">
+            <c-stack :px="4" :pt="1" :pb="4">
                 <c-flex direction="row" justify="space-between">
                     <c-text
                         fontSize="sm"
@@ -81,7 +81,7 @@
                         id="hide-am"
                     />
                 </c-flex>
-                <c-flex direction="row" justify="space-between">
+                <!-- <c-flex direction="row" justify="space-between">
                     <c-text
                         fontSize="sm"
                         fontWeight="semibold"
@@ -96,7 +96,7 @@
                         color="vue"
                         id="burn-in"
                     />
-                </c-flex>
+                </c-flex> -->
             </c-stack>
         </c-popover-content>
     </c-popover>
