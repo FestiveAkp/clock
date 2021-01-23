@@ -1,3 +1,15 @@
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+/*!
+  * focus-trap-vue v0.0.4
+  * (c) 2019 Eduardo San Martin Morote
+  * @license MIT
+  */
+
 /*!
   * vue-router v3.4.9
   * (c) 2020 Evan You
@@ -20,6 +32,12 @@
  * vue-no-ssr v1.1.1
  * (c) 2018-present egoist <0x142857@gmail.com>
  * Released under the MIT License.
+ */
+
+/*!
+ * vuex v3.6.0
+ * (c) 2020 Evan You
+ * @license MIT
  */
 
 /*!
