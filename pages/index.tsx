@@ -1,7 +1,8 @@
-import { Flex } from '@chakra-ui/react';
+import { Center } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import Header from '../components/Header';
 import FullscreenButton from '../components/FullscreenButton';
+import Gradient from '../components/Gradient';
 import Clock from '../components/Clock';
 
 export default function IndexPage() {
@@ -11,11 +12,12 @@ export default function IndexPage() {
     }, []);
 
     return (
-        <Flex as="main" minHeight="100vh" align="center" justify="center">
+        <Center as="main" minHeight="100vh">
             <Header title="Gradient Clock">
                 <FullscreenButton />
             </Header>
+            <Gradient />
             <Clock />
-        </Flex>
+        </Center>
     );
 }
