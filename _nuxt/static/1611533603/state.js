@@ -1,1 +1,0 @@
-window.__NUXT__=(function(a){return {staticAssetsBase:"\u002Fclock\u002F_nuxt\u002Fstatic\u002F1611533603",layout:"default",error:null,state:{is24Hour:a,isHidingSeconds:a,isUppercaseAM:a,isHidingAM:a,isBurnInReduction:a},serverRendered:true,routePath:"\u002F",config:{}}}(false));
