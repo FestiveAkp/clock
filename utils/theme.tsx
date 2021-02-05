@@ -4,6 +4,9 @@ import { Global } from '@emotion/react';
 export const theme = extendTheme({
     styles: {
         global: {
+            html: {
+                overflow: 'hidden'
+            },
             body: {
                 color: '#3a3a3a'
             }

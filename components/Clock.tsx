@@ -11,11 +11,13 @@ export default function Clock(props: Props) {
     // Destructure props
     const {
         options: {
+            isHidingClock,
             is24Hour,
             isHidingSeconds,
             isUppercaseAM,
             isHidingAM,
-            isBurnInReduction
+            isBurnInReduction,
+            isHidingDate
         }
     } = props;
 
@@ -31,7 +33,7 @@ export default function Clock(props: Props) {
 
     // Format clock display based on options
     const formatTime = (time) => {
-        const h = is24Hour ? 'H' : 'h';
+        const h = is24Hour ? 'HH' : 'h';
         const ss = isHidingSeconds ? '' : ':ss';
         const a = is24Hour || isHidingAM ? '' : isUppercaseAM ? ' A' : ' a';
 
@@ -45,10 +47,16 @@ export default function Clock(props: Props) {
         return () => clearInterval(interval)
     }, []);
 
+    const marginBottom = (isHidingDate || isHidingClock) ? 4 : 8;
+
     return (
-        <Box as="section" textAlign="center" mb={8}>
-            <Text fontSize="12vw" fontFamily="Varela Round">{formatTime(time)}</Text>
-            <Text fontSize="3vw" fontFamily="Varela Round">{date}</Text>
+        <Box as="section" textAlign="center" fontFamily="Varela Round" mb={marginBottom}>
+            {!isHidingClock &&
+                <Text fontSize="12vw">{formatTime(time)}</Text>
+            }
+            {!isHidingDate &&
+                <Text fontSize={isHidingClock ? '6vw' : '3vw'}>{date}</Text>
+            }
         </Box>
     );
 }

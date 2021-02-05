@@ -18,6 +18,7 @@ export default function Header(props: Props) {
             justify="space-between"
             px={6}
             py={4}
+            className="animated-header"
         >
             <Text fontSize="xl" fontWeight="semibold">{title}</Text>
             <Box>

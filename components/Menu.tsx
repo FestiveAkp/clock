@@ -8,6 +8,7 @@ import {
     PopoverHeader,
     PopoverTrigger,
     Stack,
+    Text
 } from "@chakra-ui/react";
 import { ClockOptions, Action } from '../utils/types';
 import MenuOption from './MenuOption';
@@ -30,31 +31,47 @@ export default function Menu(props: Props) {
                 </Button>
             </PopoverTrigger>
             <PopoverContent>
-                <PopoverHeader pl={4} fontWeight="semibold">Clock Options</PopoverHeader>
-                <PopoverCloseButton />
+                <PopoverHeader pl={4} fontWeight="semibold">Options</PopoverHeader>
+                <PopoverCloseButton  mt={1} />
                 <PopoverBody>
                     <Stack px={1} py={1}>
+                        <Text fontSize="sm" fontWeight="semibold" color="gray.500">Time Options</Text>
+                        <MenuOption
+                            label="Hide clock"
+                            value={options.isHidingClock}
+                            onChange={() => dispatch({ type: 'isHidingClock' })}
+                        />
                         <MenuOption
                             label="24-hour clock"
                             value={options.is24Hour}
                             onChange={() => dispatch({ type: 'is24Hour' })}
+                            disabled={options.isHidingClock}
                         />
                         <MenuOption
                             label="Hide seconds"
                             value={options.isHidingSeconds}
                             onChange={() => dispatch({ type: 'isHidingSeconds' })}
+                            disabled={options.isHidingClock}
                         />
                         <MenuOption
                             label="Uppercase am/pm"
                             value={options.isUppercaseAM}
                             onChange={() => dispatch({ type: 'isUppercaseAM' })}
-                            disabled={options.is24Hour || options.isHidingAM}
+                            disabled={options.isHidingClock || options.is24Hour || options.isHidingAM}
                         />
                         <MenuOption
                             label="Hide am/pm"
                             value={options.isHidingAM}
                             onChange={() => dispatch({ type: 'isHidingAM' })}
-                            disabled={options.is24Hour}
+                            disabled={options.isHidingClock || options.is24Hour}
+                        />
+                    </Stack>
+                    <Stack px={1} py={1} mt={3}>
+                        <Text fontSize="sm" fontWeight="semibold" color="gray.500">Date Options</Text>
+                        <MenuOption
+                            label="Hide date"
+                            value={options.isHidingDate}
+                            onChange={() => dispatch({ type: 'isHidingDate' })}
                         />
                     </Stack>
                 </PopoverBody>
