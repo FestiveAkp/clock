@@ -1,5 +1,4 @@
 import { useEffect, useReducer } from 'react';
-import { Center } from '@chakra-ui/react';
 import { optionsReducer, initialOptions } from '../utils/clockOptionsReducer';
 import { Header, FullscreenButton, Gradient, Clock, Menu, AnimateHeaderContainer } from '../components';
 
