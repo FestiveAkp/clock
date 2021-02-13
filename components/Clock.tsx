@@ -52,10 +52,10 @@ export default function Clock(props: Props) {
     return (
         <Box as="section" textAlign="center" fontFamily="Varela Round" mb={marginBottom}>
             {!isHidingClock &&
-                <Text fontSize="12vw">{formatTime(time)}</Text>
+                <Text fontSize="12vw">{time ? formatTime(time) : ''}</Text>
             }
             {!isHidingDate &&
-                <Text fontSize={isHidingClock ? '6vw' : '3vw'}>{date}</Text>
+                <Text fontSize={isHidingClock ? '6vw' : '3vw'}>{date ? date : ''}</Text>
             }
         </Box>
     );
