@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.1",
-    "@emotion/react": "^11.1.5",
+    "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "animejs": "^3.2.1",
     "dayjs": "^1.10.4",
