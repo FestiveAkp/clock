@@ -14,6 +14,23 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                 <meta name="msapplication-config" content="/clock/browserconfig.xml" />
                 <meta name="theme-color" content="#000000" />
 
+                {process.env.NODE_ENV === 'production' && (
+                    <>
+                        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158040337-2" />
+                        <script
+                            dangerouslySetInnerHTML={{
+                                __html: `
+                                    window.dataLayer = window.dataLayer || [];
+                                    function gtag(){dataLayer.push(arguments);}
+                                    gtag('js', new Date());
+                                    gtag('config', 'UA-158040337-2', { page_path: window.location.pathname });
+
+                                `
+                            }}
+                        />
+                    </>
+                )}
+
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://akash.dev/clock/" />
                 <meta property="og:title" content="Gradient Clock" />
