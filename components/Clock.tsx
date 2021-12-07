@@ -16,7 +16,6 @@ export default function Clock(props: Props) {
             isHidingSeconds,
             isUppercaseAM,
             isHidingAM,
-            isBurnInReduction,
             isHidingDate
         }
     } = props;
@@ -50,7 +49,7 @@ export default function Clock(props: Props) {
     const marginBottom = (isHidingDate || isHidingClock) ? 4 : 8;
 
     return (
-        <Box as="section" textAlign="center" fontFamily="Varela Round" mb={marginBottom}>
+        <Box as="section" className="clock-face" textAlign="center" fontFamily="Varela Round" cursor="default" mb={marginBottom}>
             {!isHidingClock &&
                 <Text fontSize="12vw">{time ? formatTime(time) : ''}</Text>
             }

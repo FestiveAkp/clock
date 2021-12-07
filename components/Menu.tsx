@@ -1,4 +1,4 @@
-import { Button, Popover, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Stack, Text } from "@chakra-ui/react";
+import { Button, Divider, Popover, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Stack, Text } from "@chakra-ui/react";
 import { ClockOptions, UpdateClockOptions } from "../utils/types";
 import MenuOption from './MenuOption';
 
@@ -23,6 +23,15 @@ export default function Menu(props: Props) {
                 <PopoverHeader pl={4} fontWeight="semibold">Options</PopoverHeader>
                 <PopoverCloseButton  mt={1} />
                 <PopoverBody>
+                    <Stack px={1} py={1}>
+                        <Text fontSize="sm" fontWeight="semibold" color="gray.500">Display Options</Text>
+                        <MenuOption
+                            label="Enable burn-in reduction"
+                            value={options.isBurnInReduction}
+                            onChange={() => onUpdate('isBurnInReduction')}
+                        />
+                    </Stack>
+                    <Divider my={2} />
                     <Stack px={1} py={1}>
                         <Text fontSize="sm" fontWeight="semibold" color="gray.500">Time Options</Text>
                         <MenuOption
@@ -55,7 +64,8 @@ export default function Menu(props: Props) {
                             disabled={options.isHidingClock || options.is24Hour}
                         />
                     </Stack>
-                    <Stack px={1} py={1} mt={3}>
+                    <Divider my={2} />
+                    <Stack px={1} py={1}>
                         <Text fontSize="sm" fontWeight="semibold" color="gray.500">Date Options</Text>
                         <MenuOption
                             label="Hide date"

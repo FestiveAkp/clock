@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Header, FullscreenButton, Gradient, Clock, Menu, AnimateHeaderContainer } from '../components';
+import { Header, FullscreenButton, Gradient, Clock, Menu, AnimateHeaderContainer, BurnInReductionAnimator } from '../components';
 import { ClockOptions, UpdateClockOptions } from '../utils/types';
 
 export default function IndexPage() {
@@ -30,6 +30,7 @@ export default function IndexPage() {
                 <Menu options={options} onUpdate={updateOptions} />
             </Header>
             <Clock options={options} />
+            <BurnInReductionAnimator isBurnInReduction={options.isBurnInReduction} />
         </AnimateHeaderContainer>
     );
 }
