@@ -1,9 +1,21 @@
-import { useEffect, useReducer } from 'react';
-import { optionsReducer, initialOptions } from '../utils/clockOptionsReducer';
+import { useEffect, useState } from 'react';
 import { Header, FullscreenButton, Gradient, Clock, Menu, AnimateHeaderContainer } from '../components';
+import { ClockOptions, UpdateClockOptions } from '../utils/types';
 
 export default function IndexPage() {
-    const [options, dispatch] = useReducer(optionsReducer, initialOptions);
+    const [options, setOptions] = useState<ClockOptions>({
+        isHidingClock: false,
+        is24Hour: false,
+        isHidingSeconds: false,
+        isUppercaseAM: false,
+        isHidingAM: false,
+        isBurnInReduction: false,
+        isHidingDate: false,
+    });
+
+    const updateOptions: UpdateClockOptions = key => setOptions(options => {
+        return {...options, [key]: !options[key]}
+    });
 
     useEffect(() => {
         console.log('Hey there.');
@@ -15,7 +27,7 @@ export default function IndexPage() {
             <Gradient />
             <Header title="Gradient Clock">
                 <FullscreenButton />
-                <Menu options={options} dispatch={dispatch} />
+                <Menu options={options} onUpdate={updateOptions} />
             </Header>
             <Clock options={options} />
         </AnimateHeaderContainer>

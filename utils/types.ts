@@ -5,10 +5,7 @@ export type ClockOptions = {
     isUppercaseAM: boolean;
     isHidingAM: boolean;
     isBurnInReduction: boolean;
-
     isHidingDate: boolean;
 }
 
-export type Action = {
-    type: string
-}
+export type UpdateClockOptions = (key: string) => void

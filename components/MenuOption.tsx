@@ -1,11 +1,9 @@
 import { Flex, Text, Switch } from '@chakra-ui/react';
-import { Dispatch } from 'react';
-import { Action } from '../utils/types';
 
 type Props = {
     label: string,
     value: boolean,
-    onChange: Dispatch<Action>,
+    onChange: () => void,
     disabled?: boolean
 }
 

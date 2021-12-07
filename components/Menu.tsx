@@ -1,25 +1,14 @@
-import { Dispatch } from "react";
-import {
-    Button,
-    Popover,
-    PopoverBody,
-    PopoverCloseButton,
-    PopoverContent,
-    PopoverHeader,
-    PopoverTrigger,
-    Stack,
-    Text
-} from "@chakra-ui/react";
-import { ClockOptions, Action } from '../utils/types';
+import { Button, Popover, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Stack, Text } from "@chakra-ui/react";
+import { ClockOptions, UpdateClockOptions } from "../utils/types";
 import MenuOption from './MenuOption';
 
 type Props = {
     options: ClockOptions,
-    dispatch: Dispatch<Action>
+    onUpdate: UpdateClockOptions
 }
 
 export default function Menu(props: Props) {
-    const { options, dispatch } = props;
+    const { options, onUpdate } = props;
 
     return (
         <Popover placement="bottom-end">
@@ -39,30 +28,30 @@ export default function Menu(props: Props) {
                         <MenuOption
                             label="Hide clock"
                             value={options.isHidingClock}
-                            onChange={() => dispatch({ type: 'isHidingClock' })}
+                            onChange={() => onUpdate('isHidingClock')}
                         />
                         <MenuOption
                             label="24-hour clock"
                             value={options.is24Hour}
-                            onChange={() => dispatch({ type: 'is24Hour' })}
+                            onChange={() => onUpdate('is24Hour')}
                             disabled={options.isHidingClock}
                         />
                         <MenuOption
                             label="Hide seconds"
                             value={options.isHidingSeconds}
-                            onChange={() => dispatch({ type: 'isHidingSeconds' })}
+                            onChange={() => onUpdate('isHidingSeconds')}
                             disabled={options.isHidingClock}
                         />
                         <MenuOption
                             label="Uppercase am/pm"
                             value={options.isUppercaseAM}
-                            onChange={() => dispatch({ type: 'isUppercaseAM' })}
+                            onChange={() => onUpdate('isUppercaseAM')}
                             disabled={options.isHidingClock || options.is24Hour || options.isHidingAM}
                         />
                         <MenuOption
                             label="Hide am/pm"
                             value={options.isHidingAM}
-                            onChange={() => dispatch({ type: 'isHidingAM' })}
+                            onChange={() => onUpdate('isHidingAM')}
                             disabled={options.isHidingClock || options.is24Hour}
                         />
                     </Stack>
@@ -71,7 +60,7 @@ export default function Menu(props: Props) {
                         <MenuOption
                             label="Hide date"
                             value={options.isHidingDate}
-                            onChange={() => dispatch({ type: 'isHidingDate' })}
+                            onChange={() => onUpdate('isHidingDate')}
                         />
                     </Stack>
                 </PopoverBody>
