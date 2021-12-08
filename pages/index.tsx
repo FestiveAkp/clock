@@ -11,6 +11,7 @@ export default function IndexPage() {
         isHidingAM: false,
         isBurnInReduction: false,
         isHidingDate: false,
+        isHidingDay: false
     });
 
     const updateOptions: UpdateClockOptions = key => setOptions(options => {

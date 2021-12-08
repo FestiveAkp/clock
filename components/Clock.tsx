@@ -8,7 +8,6 @@ type Props = {
 }
 
 export default function Clock(props: Props) {
-    // Destructure props
     const {
         options: {
             isHidingClock,
@@ -16,7 +15,8 @@ export default function Clock(props: Props) {
             isHidingSeconds,
             isUppercaseAM,
             isHidingAM,
-            isHidingDate
+            isHidingDate,
+            isHidingDay
         }
     } = props;
 
@@ -27,16 +27,23 @@ export default function Clock(props: Props) {
     // Update time every second
     const updateCurrentTime = () => {
         setTime(dayjs().format());
-        setDate(dayjs().format('dddd, MMMM D, YYYY'));
+        setDate(dayjs().format());
     }
 
     // Format clock display based on options
-    const formatTime = (time) => {
+    const formatTime = (time: string) => {
         const h = is24Hour ? 'HH' : 'h';
         const ss = isHidingSeconds ? '' : ':ss';
         const a = is24Hour || isHidingAM ? '' : isUppercaseAM ? ' A' : ' a';
 
         return dayjs(time).format(h + ':mm' + ss + a);
+    }
+
+    // Format date display based on options
+    const formatDate = (date: string) => {
+        const dayOfWeek = isHidingDay ? '' : 'dddd, ';
+
+        return dayjs(date).format(dayOfWeek + 'MMMM D, YYYY');
     }
 
     // On mount, get current time and start ticking
@@ -54,7 +61,7 @@ export default function Clock(props: Props) {
                 <Text fontSize="12vw">{time ? formatTime(time) : ''}</Text>
             }
             {!isHidingDate &&
-                <Text fontSize={isHidingClock ? '6vw' : '3vw'}>{date ? date : ''}</Text>
+                <Text fontSize={isHidingClock ? '6vw' : '3vw'}>{date ? formatDate(date) : ''}</Text>
             }
         </Box>
     );

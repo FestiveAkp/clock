@@ -1,4 +1,4 @@
-import { Button, Divider, Popover, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Stack, Text } from "@chakra-ui/react";
+import { Button, Divider, Flex, Link, Popover, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Stack, Text } from "@chakra-ui/react";
 import { ClockOptions, UpdateClockOptions } from "../utils/types";
 import MenuOption from './MenuOption';
 
@@ -23,55 +23,65 @@ export default function Menu(props: Props) {
                 <PopoverHeader pl={4} fontWeight="semibold">Options</PopoverHeader>
                 <PopoverCloseButton  mt={1} />
                 <PopoverBody>
-                    <Stack px={1} py={1}>
-                        <Text fontSize="sm" fontWeight="semibold" color="gray.500">Display Options</Text>
-                        <MenuOption
-                            label="Enable burn-in reduction"
-                            value={options.isBurnInReduction}
-                            onChange={() => onUpdate('isBurnInReduction')}
-                        />
-                    </Stack>
-                    <Divider my={2} />
-                    <Stack px={1} py={1}>
-                        <Text fontSize="sm" fontWeight="semibold" color="gray.500">Time Options</Text>
-                        <MenuOption
-                            label="Hide clock"
-                            value={options.isHidingClock}
-                            onChange={() => onUpdate('isHidingClock')}
-                        />
-                        <MenuOption
-                            label="24-hour clock"
-                            value={options.is24Hour}
-                            onChange={() => onUpdate('is24Hour')}
-                            disabled={options.isHidingClock}
-                        />
-                        <MenuOption
-                            label="Hide seconds"
-                            value={options.isHidingSeconds}
-                            onChange={() => onUpdate('isHidingSeconds')}
-                            disabled={options.isHidingClock}
-                        />
-                        <MenuOption
-                            label="Uppercase am/pm"
-                            value={options.isUppercaseAM}
-                            onChange={() => onUpdate('isUppercaseAM')}
-                            disabled={options.isHidingClock || options.is24Hour || options.isHidingAM}
-                        />
-                        <MenuOption
-                            label="Hide am/pm"
-                            value={options.isHidingAM}
-                            onChange={() => onUpdate('isHidingAM')}
-                            disabled={options.isHidingClock || options.is24Hour}
-                        />
-                    </Stack>
-                    <Divider my={2} />
-                    <Stack px={1} py={1}>
-                        <Text fontSize="sm" fontWeight="semibold" color="gray.500">Date Options</Text>
-                        <MenuOption
-                            label="Hide date"
-                            value={options.isHidingDate}
-                            onChange={() => onUpdate('isHidingDate')}
-                        />
+                    <Stack px={1} py={1} spacing={3} divider={<Divider />}>
+                        <Stack>
+                            <Text fontSize="sm" fontWeight="semibold" color="gray.500">Display Options</Text>
+                            <MenuOption
+                                label="Enable burn-in reduction"
+                                value={options.isBurnInReduction}
+                                onChange={() => onUpdate('isBurnInReduction')}
+                            />
+                        </Stack>
+                        <Stack>
+                            <Text fontSize="sm" fontWeight="semibold" color="gray.500">Time Options</Text>
+                            <MenuOption
+                                label="Hide clock"
+                                value={options.isHidingClock}
+                                onChange={() => onUpdate('isHidingClock')}
+                            />
+                            <MenuOption
+                                label="24-hour clock"
+                                value={options.is24Hour}
+                                onChange={() => onUpdate('is24Hour')}
+                                disabled={options.isHidingClock}
+                            />
+                            <MenuOption
+                                label="Hide seconds"
+                                value={options.isHidingSeconds}
+                                onChange={() => onUpdate('isHidingSeconds')}
+                                disabled={options.isHidingClock}
+                            />
+                            <MenuOption
+                                label="Uppercase am/pm"
+                                value={options.isUppercaseAM}
+                                onChange={() => onUpdate('isUppercaseAM')}
+                                disabled={options.isHidingClock || options.is24Hour || options.isHidingAM}
+                            />
+                            <MenuOption
+                                label="Hide am/pm"
+                                value={options.isHidingAM}
+                                onChange={() => onUpdate('isHidingAM')}
+                                disabled={options.isHidingClock || options.is24Hour}
+                            />
+                        </Stack>
+                        <Stack>
+                            <Text fontSize="sm" fontWeight="semibold" color="gray.500">Date Options</Text>
+                            <MenuOption
+                                label="Hide full date"
+                                value={options.isHidingDate}
+                                onChange={() => onUpdate('isHidingDate')}
+                            />
+                            <MenuOption
+                                label="Hide day of the week"
+                                value={options.isHidingDay}
+                                onChange={() => onUpdate('isHidingDay')}
+                            />
+                        </Stack>
+                        <Flex fontSize="sm" fontWeight="semibold">
+                            <Text>Created by <Link href="/" color="teal.700" textDecoration="underline">Akash Pillai</Link></Text>
+                            <Text mx={1} fontWeight="normal">&ndash;</Text>
+                            <Link href="https://github.com/FestiveAkp/clock" isExternal color="teal.700" textDecoration="underline">Source Code</Link>
+                        </Flex>
                     </Stack>
                 </PopoverBody>
             </PopoverContent>
