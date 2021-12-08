@@ -11,28 +11,59 @@ export default function BurnInReductionAnimator(props: Props) {
     const burnInReductionAnimation = useRef(null);
 
     useEffect(() => {
-        const d = 25;       // pixels to shift
-        const t = 2000;     // time to move
-        const w = 10000;     // time to wait
+        const d = 25;           // pixels to shift
+        const t = 2_000;        // time to move
+        const w = 15_000;       // time to wait
+        const f = 4_000;        // time to fade in/out
+
+        const wait = [
+            { duration: w }
+        ];
+
+        const fadeOutThenIn = [
+            { opacity: 0, duration: f },
+            { duration: 1_000 },
+            { opacity: 1, duration: f },
+        ];
+
         burnInReductionAnimation.current = anime({
             targets: '.clock-face',
             keyframes: [
+                // Move to top left
                 { translateX: d, translateY: -d, duration: t },
-                { duration: w },
-                { translateX: 0, translateY: 0, duration: t },
-                { duration: w },
-                { translateX: d, translateY: d, duration: t },
-                { duration: w },
-                { translateX: 0, translateY: 0, duration: t },
-                { duration: w },
+                ...wait,
+
+                ...fadeOutThenIn,
+
+                // Move to bottom right
                 { translateX: -d, translateY: d, duration: t },
-                { duration: w },
+                ...wait,
+
+                ...fadeOutThenIn,
+
+                // Move to center
                 { translateX: 0, translateY: 0, duration: t },
-                { duration: w },
+                ...wait,
+
+                ...fadeOutThenIn,
+
+                // Move to top right
                 { translateX: -d, translateY: -d, duration: t },
-                { duration: w },
+                ...wait,
+
+                ...fadeOutThenIn,
+
+                // Move to bottom left
+                { translateX: d, translateY: d, duration: t },
+                ...wait,
+
+                ...fadeOutThenIn,
+
+                // Return to center
                 { translateX: 0, translateY: 0, duration: t },
-                { duration: w },
+                ...wait,
+
+                ...fadeOutThenIn
             ],
             autoplay: false,
             loop: true,
@@ -52,6 +83,7 @@ export default function BurnInReductionAnimator(props: Props) {
                 targets: '.clock-face',
                 translateX: 0,
                 translateY: 0,
+                opacity: 1,
                 duration: 750,
                 easing: 'easeInOutExpo'
             });
