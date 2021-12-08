@@ -49,7 +49,7 @@ export default function Clock(props: Props) {
     const marginBottom = (isHidingDate || isHidingClock) ? 4 : 8;
 
     return (
-        <Box as="section" className="clock-face" textAlign="center" fontFamily="Varela Round" cursor="default" mb={marginBottom}>
+        <Box as="section" className="clock-face" textAlign="center" fontFamily="Varela Round, sans-serif" cursor="default" mb={marginBottom}>
             {!isHidingClock &&
                 <Text fontSize="12vw">{time ? formatTime(time) : ''}</Text>
             }

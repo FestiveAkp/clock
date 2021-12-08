@@ -8,15 +8,11 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html>
+            <Html lang="en">
                 <Head />
                 <body>
                     <Main />
                     <NextScript />
-                    <script
-                        data-goatcounter="https://akashdev.goatcounter.com/count"
-                        async src="//gc.zgo.at/count.js"
-                    />
                 </body>
             </Html>
         );
