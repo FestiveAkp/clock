@@ -67,7 +67,7 @@ export default function Menu(props: Props) {
                         <Stack>
                             <Text fontSize="sm" fontWeight="semibold" color="gray.500">Date Options</Text>
                             <MenuOption
-                                label="Hide full date"
+                                label="Hide date"
                                 value={options.isHidingDate}
                                 onChange={() => onUpdate('isHidingDate')}
                             />
@@ -75,6 +75,7 @@ export default function Menu(props: Props) {
                                 label="Hide day of the week"
                                 value={options.isHidingDay}
                                 onChange={() => onUpdate('isHidingDay')}
+                                disabled={options.isHidingDate}
                             />
                         </Stack>
                         <Flex fontSize="sm" fontWeight="semibold">
