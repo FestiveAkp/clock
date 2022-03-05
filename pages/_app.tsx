@@ -2,6 +2,7 @@ import Head from 'next/head';
 import type { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';
 import { theme, Fonts } from '../utils/theme';
+import Script from 'next/script';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
     return (
@@ -14,7 +15,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                 <meta name="msapplication-config" content="/clock/browserconfig.xml" />
                 <meta name="theme-color" content="#000000" />
 
-                <script defer data-domain="akash.dev" src="https://plausible.io/js/plausible.js"></script>
+                <Script defer data-domain="akash.dev" src="https://plausible.io/js/plausible.js"></Script>
 
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://akash.dev/clock/" />
