@@ -15,8 +15,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                 <meta name="msapplication-config" content="/clock/browserconfig.xml" />
                 <meta name="theme-color" content="#000000" />
 
-                <Script defer data-domain="akash.dev" src="https://plausible.io/js/plausible.js"></Script>
-
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://akash.dev/clock/" />
                 <meta property="og:title" content="Gradient Clock" />
@@ -33,6 +31,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                 <link rel="mask-icon" href="/clock/safari-pinned-tab.svg" color="#5bbad5" />
                 <link rel="shortcut icon" href="/clock/favicon.ico" />
             </Head>
+            <Script defer data-domain="akash.dev" src="https://plausible.io/js/plausible.js"></Script>
             <ChakraProvider theme={theme}>
                 <Fonts />
                 <Component {...pageProps} />
