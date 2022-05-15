@@ -16,7 +16,8 @@ export default function Clock(props: Props) {
             isUppercaseAM,
             isHidingAM,
             isHidingDate,
-            isHidingDay
+            isHidingDay,
+            fontSelection
         }
     } = props;
 
@@ -32,6 +33,8 @@ export default function Clock(props: Props) {
 
     // Format clock display based on options
     const formatTime = (time: string) => {
+        if (!time) return '';
+
         const h = is24Hour ? 'HH' : 'h';
         const ss = isHidingSeconds ? '' : ':ss';
         const a = is24Hour || isHidingAM ? '' : isUppercaseAM ? ' A' : ' a';
@@ -41,6 +44,8 @@ export default function Clock(props: Props) {
 
     // Format date display based on options
     const formatDate = (date: string) => {
+        if (!date) return '';
+
         const dayOfWeek = isHidingDay ? '' : 'dddd, ';
 
         return dayjs(date).format(dayOfWeek + 'MMMM D, YYYY');
@@ -53,15 +58,18 @@ export default function Clock(props: Props) {
         return () => clearInterval(interval)
     }, []);
 
-    const marginBottom = (isHidingDate || isHidingClock) ? 4 : 8;
+    const marginBottom = fontSelection.includes('Pacifico') ? 28
+                       : fontSelection.includes('Arima') ? 14
+                       : 20;
+    const dateFontSize = isHidingClock ? '6vw' : '3vw';
 
     return (
-        <Box as="section" className="clock-face" textAlign="center" fontFamily="Varela Round, sans-serif" cursor="default" mb={marginBottom}>
+        <Box as="section" className="clock-face" textAlign="center" fontFamily={fontSelection} cursor="default" mb={marginBottom}>
             {!isHidingClock &&
-                <Text fontSize="12vw">{time ? formatTime(time) : ''}</Text>
+                <Text fontSize="12vw">{formatTime(time)}</Text>
             }
             {!isHidingDate &&
-                <Text fontSize={isHidingClock ? '6vw' : '3vw'}>{date ? formatDate(date) : ''}</Text>
+                <Text fontSize={dateFontSize}>{formatDate(date)}</Text>
             }
         </Box>
     );

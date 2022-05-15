@@ -1,14 +1,15 @@
-import { Button, Divider, Flex, Link, Popover, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Stack, Text } from "@chakra-ui/react";
+import { Button, Divider, Flex, Link, Popover, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Select, Stack, Text } from "@chakra-ui/react";
 import { ClockOptions, UpdateClockOptions } from "../utils/types";
 import MenuOption from './MenuOption';
 
 type Props = {
     options: ClockOptions,
-    onUpdate: UpdateClockOptions
+    onUpdate: UpdateClockOptions,
+    changeFont: (font: string) => void
 }
 
 export default function Menu(props: Props) {
-    const { options, onUpdate } = props;
+    const { options, onUpdate, changeFont } = props;
 
     return (
         <Popover placement="bottom-end">
@@ -31,6 +32,24 @@ export default function Menu(props: Props) {
                                 value={options.isBurnInReduction}
                                 onChange={() => onUpdate('isBurnInReduction')}
                             />
+                            <Flex direction="row" align="center">
+                                <Text fontSize="sm" width="150px" fontWeight="semibold" as="label" htmlFor="choose-font">
+                                    Choose font
+                                </Text>
+                                <Select
+                                    size="sm"
+                                    variant="filled"
+                                    id="choose-font"
+                                    onChange={e => changeFont(e.target.value)}
+                                    value={options.fontSelection}
+                                >
+                                    <option value="Rubik, sans-serif">Rubik</option>
+                                    <option value="Arima Madurai, cursive">Arima Madurai</option>
+                                    <option value="Montserrat, sans-serif">Montserrat</option>
+                                    <option value="Pacifico, cursive">Pacifico</option>
+                                    <option value="Varela Round, sans-serif">Varela Round</option>
+                                </Select>
+                            </Flex>
                         </Stack>
                         <Stack>
                             <Text fontSize="sm" fontWeight="semibold" color="gray.500">Time Options</Text>

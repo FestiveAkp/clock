@@ -11,11 +11,16 @@ export default function IndexPage() {
         isHidingAM: false,
         isBurnInReduction: false,
         isHidingDate: false,
-        isHidingDay: false
+        isHidingDay: false,
+        fontSelection: 'Rubik'
     });
 
     const updateOptions: UpdateClockOptions = key => setOptions(options => {
         return {...options, [key]: !options[key]}
+    });
+
+    const changeFont = (font: string) => setOptions(options => {
+        return {...options, fontSelection: font}
     });
 
     useEffect(() => {
@@ -26,9 +31,9 @@ export default function IndexPage() {
     return (
         <AnimateHeaderContainer>
             <Gradient />
-            <Header title="Gradient Clock">
+            <Header title="Gradient Clock" font={options.fontSelection}>
                 <FullscreenButton />
-                <Menu options={options} onUpdate={updateOptions} />
+                <Menu options={options} onUpdate={updateOptions} changeFont={changeFont} />
             </Header>
             <Clock options={options} />
             <BurnInReductionAnimator isBurnInReduction={options.isBurnInReduction} />

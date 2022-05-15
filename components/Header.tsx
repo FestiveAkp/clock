@@ -2,11 +2,12 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 
 type Props = {
     title: string,
+    font: string,
     children: React.ReactNode
 }
 
 export default function Header(props: Props) {
-    const { title, children } = props;
+    const { title, font, children } = props;
 
     return (
         <Flex as="header"
@@ -20,7 +21,7 @@ export default function Header(props: Props) {
             py={4}
             className="animated-header"
         >
-            <Text fontSize="xl" fontWeight="semibold">{title}</Text>
+            <Text fontSize="xl" fontFamily={font}>{title}</Text>
             <Box>
                 {children}
             </Box>

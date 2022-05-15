@@ -7,6 +7,7 @@ export type ClockOptions = {
     isBurnInReduction: boolean;
     isHidingDate: boolean;
     isHidingDay: boolean;
+    fontSelection: string;
 }
 
 export type UpdateClockOptions = (key: string) => void
