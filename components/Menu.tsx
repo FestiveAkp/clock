@@ -45,7 +45,6 @@ export default function Menu(props: Props) {
                                 >
                                     <option value="Rubik, sans-serif">Rubik</option>
                                     <option value="Arima Madurai, cursive">Arima Madurai</option>
-                                    <option value="Montserrat, sans-serif">Montserrat</option>
                                     <option value="Pacifico, cursive">Pacifico</option>
                                     <option value="Varela Round, sans-serif">Varela Round</option>
                                 </Select>
