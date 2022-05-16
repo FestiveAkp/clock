@@ -5,11 +5,12 @@ import MenuOption from './MenuOption';
 type Props = {
     options: ClockOptions,
     onUpdate: UpdateClockOptions,
-    changeFont: (font: string) => void
+    changeFont: (font: string) => void,
+    reset: () => void
 }
 
 export default function Menu(props: Props) {
-    const { options, onUpdate, changeFont } = props;
+    const { options, onUpdate, changeFont, reset } = props;
 
     return (
         <Popover placement="bottom-end">
@@ -24,17 +25,12 @@ export default function Menu(props: Props) {
                 <PopoverHeader pl={4} fontWeight="semibold">Options</PopoverHeader>
                 <PopoverCloseButton  mt={1} />
                 <PopoverBody>
-                    <Stack px={1} py={1} spacing={3} divider={<Divider />}>
+                    <Stack maxHeight="60vh" overflowY="auto" px={1} py={1} spacing={3} divider={<Divider />}>
                         <Stack>
                             <Text fontSize="sm" fontWeight="semibold" color="gray.500">Display Options</Text>
-                            <MenuOption
-                                label="Enable burn-in reduction"
-                                value={options.isBurnInReduction}
-                                onChange={() => onUpdate('isBurnInReduction')}
-                            />
                             <Flex direction="row" align="center">
                                 <Text fontSize="sm" width="150px" fontWeight="semibold" as="label" htmlFor="choose-font">
-                                    Choose font
+                                    Display font
                                 </Text>
                                 <Select
                                     size="sm"
@@ -49,6 +45,11 @@ export default function Menu(props: Props) {
                                     <option value="Varela Round, sans-serif">Varela Round</option>
                                 </Select>
                             </Flex>
+                            <MenuOption
+                                label="Enable burn-in reduction"
+                                value={options.isBurnInReduction}
+                                onChange={() => onUpdate('isBurnInReduction')}
+                            />
                         </Stack>
                         <Stack>
                             <Text fontSize="sm" fontWeight="semibold" color="gray.500">Time Options</Text>
@@ -96,6 +97,9 @@ export default function Menu(props: Props) {
                                 disabled={options.isHidingDate}
                             />
                         </Stack>
+                        <Flex>
+                            <Button size="sm" width="full" onClick={reset}>Reset Settings</Button>
+                        </Flex>
                         <Flex fontSize="sm" fontWeight="semibold">
                             <Text>Created by <Link href="/" color="teal.700" textDecoration="underline">Akash Pillai</Link></Text>
                             <Text mx={1} fontWeight="normal">&ndash;</Text>
