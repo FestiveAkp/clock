@@ -25,7 +25,7 @@ export default function Menu(props: Props) {
                 <PopoverHeader pl={4} fontWeight="semibold">Options</PopoverHeader>
                 <PopoverCloseButton  mt={1} />
                 <PopoverBody>
-                    <Stack maxHeight="60vh" overflowY="auto" px={1} py={1} spacing={3} divider={<Divider />}>
+                    <Stack maxHeight="65vh" overflowY="auto" px={1} py={1} spacing={3} divider={<Divider />}>
                         <Stack>
                             <Text fontSize="sm" fontWeight="semibold" color="gray.500">Display Options</Text>
                             <Flex direction="row" align="center">
