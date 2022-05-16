@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';
-import { theme, Fonts } from '../utils/theme';
+import { theme } from '../utils/theme';
 import Script from 'next/script';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -33,7 +33,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             </Head>
             <Script defer data-domain="akash.dev" src="https://plausible.io/js/plausible.js"></Script>
             <ChakraProvider theme={theme}>
-                <Fonts />
                 <Component {...pageProps} />
             </ChakraProvider>
         </>
