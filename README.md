@@ -1,5 +1,5 @@
 # Gradient Clock
-A simple but beautiful date and time display.
+A simple but beautiful date and time display, designed for large screens like meeting rooms and lecture halls.
 
 <img src="https://user-images.githubusercontent.com/20550003/168642546-3a894861-e748-4b2e-8d03-e858858d9620.gif" alt="clock" width="100%"/>
 
