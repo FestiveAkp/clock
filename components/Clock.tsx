@@ -86,7 +86,8 @@ export default function Clock(props: Props) {
         else if (font.includes('Pacifico')) {
             return '6.5vw';
         }
-        return '7.75vw';
+
+        return 'auto';
     }
 
     const dateFontSize = isHidingClock ? '6vw' : '3vw';
@@ -102,10 +103,10 @@ export default function Clock(props: Props) {
             mb={getDisplayMarginBottom(fontSelection)}
         >
             {!isHidingClock &&
-                <Box display="flex" flexDirection="row" mb={clockMarginBottom}>
+                <Box display="flex" flexDirection="row" justifyContent='center' mb={clockMarginBottom}>
                     {Array.from(formatTime(time)).map((digit, i) => {
                         const width = getMonospaceCharacterWidth(digit, fontSelection);
-                        return <Text key={i} fontSize="12vw" width={width}>{digit}</Text>
+                        return <Text key={i} fontSize="12vw" sx={{fontVariantNumeric: 'tabular-nums'}} width={width}>{digit}</Text>
                     })}
                 </Box>
             }
